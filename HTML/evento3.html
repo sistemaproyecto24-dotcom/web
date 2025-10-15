@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Suma de 5 números</title>
+</head>
+<body>
+<h1>Suma de 5 números</h1>
+
+<input id="n1" type="number"><br>
+<input id="n2" type="number"><br>
+<input id="n3" type="number"><br>
+<input id="n4" type="number"><br>
+<input id="n5" type="number"><br>
+<br><br>
+
+<button onclick="calcular()">Sumar</button>
+
+<p id="resultado"></p>
+
+<script>
+function calcular() {
+  var a = Number(document.getElementById("n1").value);
+  var b = Number(document.getElementById("n2").value);
+  var c = Number(document.getElementById("n3").value);
+  var d = Number(document.getElementById("n4").value);
+  var e = Number(document.getElementById("n5").value);
+  var suma = a + b + c + d + e;
+  document.getElementById("resultado").innerHTML = "La suma es: " + suma;
+}
+</script>
+</body>
+</html>

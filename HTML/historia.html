@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Historia de Rosario - Didáctico</title>
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #f5f1e6;
+      --accent: #8b5e3c;
+      --dark: #4b2e1e;
+      --card:#ffffff;
+      --muted: #8b5e3c;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:var(--bg);
+      color:var(--dark);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* Header */
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      background:linear-gradient(90deg, rgba(139,94,60,0.95), rgba(75,46,30,0.98));
+      color:#fff;
+      padding:20px 24px;
+      z-index:1200;
+      display:flex;
+      align-items:center;
+      gap:20px;
+      justify-content:space-between;
+      backdrop-filter: blur(6px);
+    }
+    header h1{font-size:1.25rem; margin:0; font-weight:700; text-transform:uppercase}
+    header nav a{
+      color:#fff;
+      text-decoration:none;
+      margin-left:14px;
+      font-weight:600;
+      transition:color .3s;
+    }
+    header nav a:hover{color:#ffcc70}
+
+    main{
+      padding:120px 18px 60px;
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    .intro{
+      text-align:center;
+      margin-bottom:28px;
+    }
+    .intro h2{font-size:1.9rem; color:var(--accent); margin-bottom:10px}
+    .intro p{max-width:900px; margin:0 auto; line-height:1.6; color:var(--dark); opacity:0.95}
+
+    .layout{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .v-carousel {
+      position:relative;
+      height:720px;
+      overflow:hidden;
+      border-radius:14px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+      box-shadow:0 8px 24px rgba(0,0,0,0.08);
+      border:2px solid rgba(139,94,60,0.08);
+    }
+
+    .v-track {
+      position:absolute;
+      left:0;
+      right:0;
+      top:0;
+      transition:transform .45s cubic-bezier(.2,.9,.2,1);
+      will-change:transform;
+    }
+
+    .slide {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:12px;
+      padding:20px;
+      min-height:240px;
+      border-bottom:1px solid rgba(0,0,0,0.04);
+    }
+
+    .slide img{
+      width:100%;
+      max-height:360px;
+      object-fit:cover;
+      border-radius:12px;
+      cursor:pointer;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      transition:transform .25s;
+    }
+    .slide img:active{transform:scale(.995)}
+    .slide h4{margin:6px 0 0; font-size:1.05rem; color:var(--dark)}
+    .slide small{color:var(--muted); font-weight:600}
+
+    .slide .explain{
+      width:100%;
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .35s ease, padding .25s ease;
+      background:linear-gradient(180deg, rgba(139,94,60,0.03), rgba(139,94,60,0.02));
+      border-radius:8px;
+      padding:0 12px;
+      margin-top:8px;
+      color:var(--dark);
+      line-height:1.6;
+    }
+    .slide .explain.open{
+      padding:12px;
+      max-height:420px;
+    }
+
+    .v-controls{
+      position:absolute;
+      left:8px;
+      top:8px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      z-index:10;
+    }
+    .v-controls button{
+      background:rgba(255,255,255,0.9);
+      border:1px solid rgba(139,94,60,0.12);
+      width:44px;
+      height:44px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(0,0,0,0.06);
+      font-size:18px;
+      color:var(--dark);
+    }
+    .v-controls button:active{transform:translateY(1px)}
+
+    .indicator {
+      position:absolute;
+      right:8px;
+      top:8px;
+      background:rgba(255,255,255,0.92);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(139,94,60,0.06);
+      font-weight:700;
+      color:var(--dark);
+    }
+
+    .connect {
+      background:var(--card);
+      padding:18px;
+      border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+      border:1px solid rgba(0,0,0,0.03);
+    }
+    .connect h3{color:var(--accent); margin-bottom:8px}
+    .connect p{line-height:1.6; margin-bottom:12px}
+
+    .prod-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin-top:10px;
+    }
+    .prod {
+      background:linear-gradient(180deg, #fff, #fff);
+      border-radius:10px;
+      padding:10px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      border:1px solid rgba(139,94,60,0.06);
+    }
+    .prod img{width:98px; height:78px; object-fit:cover; border-radius:8px; cursor:pointer}
+    .prod .info{flex:1}
+    .prod .info h4{margin:0 0 6px; font-size:1rem}
+    .prod .info p{margin:0; font-size:0.92rem; color:var(--dark); line-height:1.4; max-height:3.2rem; overflow:hidden}
+    .prod .info p.open{max-height:400px}
+
+    footer{
+      margin-top:28px;
+      padding:18px;
+      text-align:center;
+      color:#fff;
+      background:var(--accent);
+      border-radius:10px;
+    }
+
+    @media (max-width:900px){
+      .layout{grid-template-columns:1fr; gap:18px}
+      .v-carousel{height:520px}
+      .prod-grid{grid-template-columns:1fr}
+      header h1{font-size:1rem}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Historia Rosario Challapata</h1>
+    <nav>
+      <a href="rosario3.html">Inicio</a>
+      <a href="historia.html">Historia</a>
+      <a href="eventos.html">Eventos</a>
+      <a href="galeria.html">Galería</a>
+      <a href="novedades.html">Novedades</a>
+      <a href="tienda.html">Tienda</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Historia de Rosario — un recorrido didáctico</h2>
+      <p>
+        Desde el siglo IX hasta hoy, Rosario ha desarrollado técnicas agrícolas y ganaderas únicas. 
+        Toca las imágenes del carrusel para leer explicaciones y descubrir cómo estas tradiciones se relacionan con nuestros productos.
+      </p>
+    </section>
+
+    <div class="layout">
+      <div>
+        <div class="v-carousel" id="vCarousel">
+          <div class="v-controls">
+            <button id="btnUp">▲</button>
+            <button id="btnDown">▼</button>
+          </div>
+          <div class="indicator" id="indicator">1 / 6</div>
+          <div class="v-track" id="vTrack">
+
+            <!-- Slides -->
+            <article class="slide" data-index="0">
+              <img src="tata.jpg" alt="Pobladores antiguos" data-target="exp0" />
+              <h4>festividad de la virgen del Rosario que se celebra desde los años 1930</h4>
+              <small>Pobladores andinos</small>
+              <div class="explain" id="exp0">
+                <p>Comunidades agrícolas y pastoriles, cultivo de tubérculos y conservación de alimentos.</p>
+              </div>
+            </article>
+
+            <article class="slide" data-index="1">
+              <img src="campo4.jpg" alt="Red de trueque" data-target="exp1" />
+              <h4>la cominudad de rosario  </h4>
+              <small>Intercambio regional</small>
+              <div class="explain" id="exp1">
+                <p>Redes de intercambio, especialización de cultivos y técnicas de conservación de alimentos.</p>
+              </div>
+            </article>
+
+            <article class="slide" data-index="2">
+              <img src="historia3.jpg" alt="Técnicas modernas" data-target="exp2" />
+              <h4></h4>
+              <small> fotos de antiuos comunarios </small>
+              <div class="explain" id="exp2">
+                <p>Perfeccionamiento de secado de carne y fermentación de lácteos, diversificación agrícola.</p>
+              </div>
+            </article>
+
+            <article class="slide" data-index="3">
+              <img src="historia4.jpg" alt="Mercados locales" data-target="exp3" />
+              <h4></h4>
+              <small>festividades que se celebran a lo largo del tiempo acompañados de las autoridades que son pilares fundamentales </small>
+              <div class="explain" id="exp3">
+                <p>Consolidación de productores de quesos, charque y papas.</p>
+              </div>
+            </article>
+
+            <article class="slide" data-index="4">
+              <img src="historia5.jpg" alt="Tecnología siglo XX" data-target="exp4" />
+              <h4></h4>
+              <small>Mejoras técnicas</small>
+              <div class="explain" id="exp4">
+                <p>Herramientas y refrigeración para conservar recetas tradicionales.</p>
+              </div>
+            </article>
+
+            <article class="slide" data-index="5">
+              <img src="historia6.jpg" alt="Rosario hoy" data-target="exp5" />
+              <h4>Hoy</h4>
+              <small>Identidad y agroecosistemas</small>
+              <div class="explain" id="exp5">
+                <p>Combinación de técnicas ancestrales y modernas para productos como queso, quinua, charque y papas.</p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+
+      <aside class="connect">
+        <h3>De la historia a nuestros productos</h3>
+        <p>La tradición agrícola y ganadera se refleja en los productos que ofrecemos. Toca la imagen de cada producto para ver su elaboración.</p>
+        <div class="prod-grid">
+          <div class="prod">
+            <img src="queso.jpg" alt="Queso" data-prod="pqueso" />
+            <div class="info">
+              <h4>Queso (vaca/oveja)</h4>
+              <p id="pqueso">Elaboración artesanal: ordeño, filtrado, cuajado, salado y maduración.</p>
+            </div>
+          </div>
+
+          <div class="prod">
+            <img src="quinua.jpg" alt="Quinua" data-prod="pquinua" />
+            <div class="info">
+              <h4>Quinua</h4>
+              <p id="pquinua">Cosecha, trillado, lavado y secado; selección de granos y molienda artesanal.</p>
+            </div>
+          </div>
+
+          <div class="prod">
+            <img src="charque.jpg" alt="Charque" data-prod="pcharque" />
+            <div class="info">
+              <h4>Charque</h4>
+              <p id="pcharque">Salado y secado al sol; conservación tradicional de carne.</p>
+            </div>
+          </div>
+
+          <div class="prod">
+            <img src="papa.jpg" alt="Papas" data-prod="ppapas" />
+            <div class="info">
+              <h4>Papas de Oruro</h4>
+              <p id="ppapas">Selección de variedades, recolección, lavado y clasificación para gastronomía y conservación.</p>
+            </div>
+          </div>
+
+          <div class="prod">
+            <img src="yogurt.jpg" alt="Yogurt" data-prod="pyogurt" />
+            <div class="info">
+              <h4>Yogurt</h4>
+              <p id="pyogurt">Fermentación controlada de leche con cultivos vivos; sabores locales y artesanales.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Gisel Montoya/Adriana Mosqueira — Derechos reservados 
+  </footer>
+
+  <script>
+(function(){
+  const track = document.getElementById('vTrack');
+  const slides = Array.from(track.querySelectorAll('.slide'));
+  const btnUp = document.getElementById('btnUp');
+  const btnDown = document.getElementById('btnDown');
+  const indicator = document.getElementById('indicator');
+  let index = 0;
+
+  // Función para actualizar altura de slides dinámicamente
+  function getSlideHeights() {
+    return slides.map(s => s.offsetHeight);
+  }
+
+  function updateCarousel() {
+    const slideHeights = getSlideHeights();
+    let offset = 0;
+    for (let i = 0; i < index; i++) offset += slideHeights[i] + 1; // +1 por border
+    track.style.transform = `translateY(-${offset}px)`;
+    indicator.textContent = `${index + 1} / ${slides.length}`;
+  }
+
+  btnUp.addEventListener('click', ()=>{
+    index = (index > 0) ? index - 1 : slides.length - 1;
+    updateCarousel();
+  });
+
+  btnDown.addEventListener('click', ()=>{
+    index = (index < slides.length - 1) ? index + 1 : 0;
+    updateCarousel();
+  });
+
+  // Abrir/cerrar explicación al tocar la imagen
+  slides.forEach(slide => {
+    const img = slide.querySelector('img');
+    const explain = document.getElementById(img.dataset.target);
+    img.addEventListener('click', ()=>{
+      explain.classList.toggle('open');
+      // Recalcular posición al abrir/cerar para que no se desajuste
+      updateCarousel();
+    });
+  });
+
+  // Productos: mostrar texto al tocar imagen
+  const prodImgs = document.querySelectorAll('.prod img');
+  prodImgs.forEach(img => {
+    const p = document.getElementById(img.dataset.prod);
+    img.addEventListener('click', () => {
+      p.classList.toggle('open');
+    });
+  });
+
+  // Inicializamos
+  updateCarousel();
+})();
+</script>
+
+</body>
+</html>

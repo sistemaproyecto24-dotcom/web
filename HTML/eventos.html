@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos - Rosario Challapata</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f3ec;
+      margin: 0;
+      padding: 0;
+      color: #3b2e2a;
+    }
+
+    /* ENCABEZADO */
+    header {
+      background: linear-gradient(to right, rgba(139, 94, 60, 0.95), rgba(75, 46, 30, 0.98));
+      color: white;
+      padding: 10px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      text-align: center;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffcc70;
+    }
+
+    /* CONTENIDO */
+    main {
+      padding: 160px 20px 80px; /* deja espacio por el header fijo */
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .eventos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .evento {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s;
+    }
+
+    .evento:hover {
+      transform: translateY(-6px);
+    }
+
+    .evento img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .evento-content {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .evento h3 {
+      margin: 0 0 12px;
+      font-size: 1.3em;
+      color: #8b5e3c;
+    }
+
+    .evento p {
+      font-size: 0.95em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .btn-vermas {
+      display: inline-block;
+      text-align: center;
+      background: #c97b3c;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-vermas:hover {
+      background: #ffcc70;
+      color: #3b2e2a;
+    }
+/* Sección de contenido */
+    .content {
+      padding: 60px 80px;
+      text-align: center;
+    }
+
+    .content h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #8b5e3c;
+    }
+
+    .content p {
+      font-size: 1.2em;
+      line-height: 1.8em;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    footer {
+      background: #8b5e3c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }/* Sección de contenido */
+    .content {
+      padding: 60px 80px;
+      text-align: center;
+    }
+
+    .content h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #8b5e3c;
+    }
+
+    .content p {
+      font-size: 1.2em;
+      line-height: 1.8em;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    footer {
+      background: #8b5e3c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌄 Eventos de Huancané - Rosario, Oruro</h1>
+    <nav>
+      <a href="rosario3.html">Inicio</a>
+      <a href="galeria.html">Galería</a>
+      <a href="novedades.html">Novedades</a>
+      <a href="tienda virtual.html">Tienda</a>
+      <a href="historia.html">Historia</a>
+      
+      
+    </nav>
+  </header>
+
+  <main>
+    <section class="eventos">
+      <!-- Evento 1 -->
+      <div class="evento">
+        <img src="https://i0.wp.com/portaldeturismo.pe/wp-content/uploads/2024/05/fiesta-de-las-cruces-ancash-.jpg?resize=500%2C299&ssl=1" alt="Fiesta de las Cruces">
+        <div class="evento-content">
+          <h3>Fiesta de las Cruces</h3>
+          <p>Celebración tradicional andina con música, danzas y rituales en honor a las cruces.</p>
+          <a href="evento1.html" class="btn-vermas">Ver más</a>
+        </div>
+      </div>
+
+      <!-- Evento 2 -->
+      <div class="evento">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3MmngISByGuz43PRbn8OU5LF3k2H7i_1Fuw&s" alt="Año Nuevo Andino en Pokopaka">
+        <div class="evento-content">
+          <h3>Año Nuevo Andino en Pokopaka</h3>
+          <p>Ritual en el cerro Pokopaka para recibir el nuevo ciclo agrícola con ofrendas a la Pachamama.</p>
+          <a href="evento2.html" class="btn-vermas">Ver más</a>
+        </div>
+      </div>
+
+      <!-- Evento 3 -->
+      <div class="evento">
+        <img src="https://www.minculturas.gob.bo/wp-content/uploads/2022/02/20220224_111312-650x488.jpg" alt="Anata Andina">
+        <div class="evento-content">
+          <h3>Anata Andina</h3>
+          <p>Festividad agrícola con música autóctona y ritual de Ch’alla en agradecimiento a la Pachamama.</p>
+          <a href="evento3.html" class="btn-vermas">Ver más</a>
+        </div>
+      </div>
+
+      <!-- Evento 4 -->
+      <div class="evento">
+        <img src="https://cdn.correodelsur.com/img/contents/images_980/2023/02/26/9be0eed1-9748-4030-bbc0-05b533016583.jpg" alt="Carnaval de Oruro">
+        <div class="evento-content">
+          <h3>Carnaval de Oruro</h3>
+          <p>El carnaval más famoso de Bolivia, Patrimonio de la Humanidad, con majestuosas danzas y fe.</p>
+          <a href="evento4.html" class="btn-vermas">Ver más</a>
+        </div>
+      </div>
+
+      <!-- Evento 5 -->
+      <div class="evento">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnfZCzRSiSVkHEXw6iWSHnBaV-7-0Ny44uKw&s" alt="Aquí Canta Bolivia">
+        <div class="evento-content">
+          <h3>Festival “Aquí Canta Bolivia”</h3>
+          <p>Evento musical nacional que reúne a artistas de todo el país en la ciudad de Oruro.</p>
+          <a href="evento5.html" class="btn-vermas">Ver más</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <!-- Contenido -->
+  <section class="content">
+    <h2>Lo mejor de nuestra tierra</h2>
+    <p>
+      Aquí encontrarás la historia, la cultura y la gastronomía que hacen única a Rosario Challapata. 
+      Disfruta de recetas tradicionales, eventos locales y el sabor auténtico de nuestros productos.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Rosario Challapata - Todos los derechos reservados
+  </footer>
+</body>
+</html>

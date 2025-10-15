@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reservas y pedidos - Rosario Challapata</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0fff0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2e7d32;
+      color: white;
+      padding: 10px 30px;
+    }
+
+    .escudo {
+      width: 70px;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    .contenido {
+      padding: 30px;
+    }
+
+    h2 {
+      color: #2e7d32;
+      font-size: 26px;
+    }
+
+    .formulario-reserva {
+      background-color: #e8f5e9;
+      padding: 20px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 550px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+
+    .formulario-reserva label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .formulario-reserva input,
+    .formulario-reserva select,
+    .formulario-reserva textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .formulario-reserva button {
+      margin-top: 20px;
+      background-color: #43a047;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .formulario-reserva button:hover {
+      background-color: #2e7d32;
+    }
+
+    .volver {
+      margin: 30px;
+    }
+
+    .volver .boton {
+      background-color: #388e3c;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 15px;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #2e7d32;
+      color: white;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="escudo-challapata.png" alt="Escudo de Challapata" class="escudo">
+    <h1>Reservas y pedidos - Rosario Challapata</h1>
+    <img src="escudo-oruro.png" alt="Escudo de Oruro" class="escudo">
+  </header>
+
+  <main>
+    <section class="contenido">
+      <h2>Reserva tu visita o haz tu pedido</h2>
+      <p>Completa este formulario para reservar hospedaje, viáticos o comprar productos artesanales.</p>
+
+      <form class="formulario-reserva" onsubmit="mostrarConfirmacion(); return false;">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="tipo">¿Qué deseas reservar o pedir?</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Selecciona una opción</option>
+          <option value="hospedaje">Hospedaje</option>
+          <option value="viaticos">Viáticos / Paquetes turísticos</option>
+          <option value="productos">Productos (chompas, medias, queso, etc.)</option>
+        </select>
+
+        <label for="detalle">Especifica los productos o detalles (ej: chompas talla M, 2 noches de hospedaje...)</label>
+        <textarea id="detalle" name="detalle" rows="4" required></textarea>
+
+        <label for="fecha">Fecha de entrega o llegada:</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="telefono">Teléfono o WhatsApp:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+
+        <button type="submit">Enviar solicitud</button>
+      </form>
+    </section>
+
+    <div class="volver">
+      <a href="rosario3.html" class="boton">Volver al inicio</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Rosario - Challapata. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function mostrarConfirmacion() {
+      alert("¡Tu solicitud ha sido enviada correctamente!\nPronto nos pondremos en contacto contigo.");
+      document.querySelector(".formulario-reserva").reset();
+    }
+  </script>
+
+</body>
+</html>

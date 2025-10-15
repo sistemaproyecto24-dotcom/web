@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Promedio de 5 números</title>
+</head>
+<body>
+<h1>Promedio de 5 números</h1>
+
+<input id="a" type="number"><br>
+<input id="b" type="number"><br>
+<input id="c" type="number"><br>
+<input id="d" type="number"><br>
+<input id="e" type="number"><br>
+<br><br>
+
+<button onclick="promedio()">Calcular promedio</button>
+
+<p id="res"></p>
+
+<script>
+function promedio() {
+  var a = Number(document.getElementById("a").value);
+  var b = Number(document.getElementById("b").value);
+  var c = Number(document.getElementById("c").value);
+  var d = Number(document.getElementById("d").value);
+  var e = Number(document.getElementById("e").value);
+  var prom = (a + b + c + d + e) / 5;
+  document.getElementById("res").innerHTML = "El promedio es: " + prom;
+}
+</script>
+</body>
+</html>

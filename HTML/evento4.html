@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mayor de 5 números</title>
+</head>
+<body>
+<h1>Mayor número</h1>
+
+<input id="v1" type="number"><br>
+<input id="v2" type="number"><br>
+<input id="v3" type="number"><br>
+<input id="v4" type="number"><br>
+<input id="v5" type="number"><br>
+<br><br>
+
+<button onclick="mayor()">Mostrar mayor</button>
+
+<p id="res"></p>
+
+<script>
+function mayor() {
+  var a = Number(document.getElementById("v1").value);
+  var b = Number(document.getElementById("v2").value);
+  var c = Number(document.getElementById("v3").value);
+  var d = Number(document.getElementById("v4").value);
+  var e = Number(document.getElementById("v5").value);
+  var max = Math.max(a,b,c,d,e);
+  document.getElementById("res").innerHTML = "El número mayor es: " + max;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Multiplicacion de 5 numeros</title>
+</head>
+<body>
+<h1>Multiplicacion de 5 números</h1>
+
+<input id="x1" type="number"><br>
+<input id="x2" type="number"><br>
+<input id="x3" type="number"><br>
+<input id="x4" type="number"><br>
+<input id="x5" type="number"><br>
+<br><br>
+
+<button onclick="multiplicar()">Multiplicar</button>
+
+<p id="salida"></p>
+
+<script>
+function multiplicar() {
+  var a = Number(document.getElementById("x1").value);
+  var b = Number(document.getElementById("x2").value);
+  var c = Number(document.getElementById("x3").value);
+  var d = Number(document.getElementById("x4").value);
+  var e = Number(document.getElementById("x5").value);
+  var total = a * b * c * d * e;
+  document.getElementById("salida").innerHTML = "El resultado es: " + total;
+}
+</script>
+</body>
+</html>

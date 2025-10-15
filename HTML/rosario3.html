@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rosario Challapata</title>
+
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Iconos -->
+  <script src="https://kit.fontawesome.com/3f4e1f9b1a.js" crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f1e6;
+      color: #4b2e1e;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      background-color: #8b5e3c;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffcc70;
+    }
+
+    /* Botón menú móvil */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8em;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: url('VACAS3.jpg') no-repeat center center/cover;
+      padding-top: 80px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      font-weight: 700;
+      color: white;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 4px solid white;
+      width: 0;
+      animation: typing 6s steps(25) forwards, blink 0.8s infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 22ch; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .hero p {
+      font-size: 1.4em;
+      margin: 20px 0;
+      color: #f5f1e6;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+    }
+
+    .btn-hero {
+      background: #8b5e3c;
+      color: white;
+      padding: 15px 35px;
+      border-radius: 30px;
+      font-size: 1.2em;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn-hero:hover {
+      background: #ffcc70;
+      color: #4b2e1e;
+    }
+
+    /* Redes sociales */
+    .social-icons {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .social-icons a {
+      font-size: 1.5em;
+      color: white;
+      background: rgba(0,0,0,0.4);
+      padding: 12px;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: #ffcc70;
+      color: #4b2e1e;
+    }
+
+    footer {
+      background: #8b5e3c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* Adaptación móvil */
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #8b5e3c;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        padding: 20px;
+        gap: 15px;
+        text-align: center;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      header {
+        padding: 10px 15px;
+      }
+
+      .hero h1 {
+        font-size: 2.3em;
+      }
+
+      .hero p {
+        font-size: 1.1em;
+      }
+
+      .btn-hero {
+        padding: 12px 28px;
+        font-size: 1em;
+      }
+
+      .social-icons {
+        right: 10px;
+        gap: 10px;
+      }
+
+      footer {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="VAQUITA.jpg" alt="Logo">
+    <nav id="menu">
+      <a href="eventos.html">EVENTOS</a>
+      <a href="galeria.html">GALERÍA</a>
+      <a href="novedades.html">NOVEDADES</a>
+      <a href="tienda virtual.html">TIENDA</a>
+      <a href="historia.html">HISTORIA</a>
+    </nav>
+    <div class="menu-toggle" id="toggle"><i class="fas fa-bars"></i></div>
+  </header>
+
+  <section class="hero">
+    <h1>Rosario Challapata</h1>
+    <p>Sabores y tradiciones de nuestra tierra</p>
+    <a href="historia.html" class="btn-hero">Descubre más</a>
+
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Rosario Challapata - Todos los derechos reservados
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('toggle');
+    const menu = document.getElementById('menu');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      toggle.innerHTML = menu.classList.contains('active')
+        ? '<i class=\"fas fa-times\"></i>'
+        : '<i class=\"fas fa-bars\"></i>';
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+	  
